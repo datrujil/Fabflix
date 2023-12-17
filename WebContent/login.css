@@ -1,0 +1,28 @@
+body {
+    background-image: url("./img/login-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2.welcome-login {
+    color: red;
+    text-align: center;
+}

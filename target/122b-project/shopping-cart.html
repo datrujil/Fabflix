@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="shopping-cart.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" type="text/css" href="shopping-cart.css">
+    <script src="https://kit.fontawesome.com/ee5ec8630d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="logo" href="#"> <img src="img/FabFlix.jpg" alt="Fablix Logo"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="main-page.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="movie-list.html">Top Rating Movie</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!--Shopping Cart-->
+<section class="h-100">
+    <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+                <h3>Shopping Cart</h3>
+                <div class="cart">
+                    <!-- Cart items will be dynamically generated here -->
+                </div>
+
+                <div class="cart-total">
+                    <div>Total Price:</div>
+                    <div class="overall-price">$0.00</div>
+                </div>
+
+                <button onclick="goToPaymentPage()" type="button" class="btn btn-primary">Checkout</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<button onclick="history.back()" type="button" class="btn btn-primary">Back</button>
+
+<script>
+    // Function to parse the query parameters from the URL
+    function getQueryParams(url) {
+        const queryParams = {};
+        const query = url.split('?')[1];
+        if (query) {
+            const params = query.split('&');
+            for (const param of params) {
+                const [key, value] = param.split('=');
+                queryParams[key] = decodeURIComponent(value);
+            }
+        }
+        return queryParams;
+    }
+
+    // Get the cart data from the URL
+    const queryParams = getQueryParams(window.location.href);
+    const cartData = queryParams.cartData;
+
+    // Parse the cart data if needed (e.g., convert from JSON)
+    const cart = JSON.parse(cartData);
+
+    // Function to display the cart items and update the total price
+    function displayCart(cart) {
+        const cartElement = document.querySelector('.cart');
+        cartElement.innerHTML = ''; // Clear previous contents
+
+        // Calculate the total price
+        let total = 0;
+
+        // Loop through the cart items
+        for (const item of cart) {
+            // Create a container for each cart item
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartElement.appendChild(cartItem);
+
+            // Display item details (you can customize this)
+            cartItem.innerHTML = `<span>${item.title} - Quantity: ${item.quantity} - $${item.price.toFixed(2)}</span>`;
+
+            // Add the item price multiplied by its quantity to the total
+            total += item.price * item.quantity;
+        }
+
+        // Display the total price
+        const totalElement = document.querySelector('.overall-price');
+        totalElement.textContent = `$${total.toFixed(2)}`;
+    }
+
+    // Call the function to display the cart
+    displayCart(cart);
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="shopping-cart.js"></script>
+<script src="movie-list.js"></script>
+
+</body>
+</html>

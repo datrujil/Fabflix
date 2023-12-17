@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin">
+
+    <ListView
+            android:id="@+id/movielist"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/next"
+    />
+    <Button
+            android:id="@+id/prev"
+            android:background="@color/design_default_color_secondary_variant"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:text="@string/prev"
+            app:layout_constraintTop_toBottomOf="@+id/movielist"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/next"
+            app:layout_constraintHorizontal_bias="0.7"
+            android:layout_marginEnd="10dp"
+            android:textColor="#FFFDFD"/>
+
+    <Button
+            android:id="@+id/next"
+            android:background="#FF018786"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:text="@string/next"
+            app:layout_constraintStart_toEndOf="@+id/prev"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movielist"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.7"
+            android:layout_marginStart="10dp"
+            android:textColor="#F6F4F4"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

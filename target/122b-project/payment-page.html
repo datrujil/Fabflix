@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Payment Page</title>
+    <link rel="stylesheet" type="text/css" href="payment-page.css">
+    <script src="https://kit.fontawesome.com/ee5ec8630d.js" crossorigin="anonymous"></script>
+
+    <style>
+        div.icon-container i {
+            transform: scale(3);
+            padding: 10px 10px;
+            margin-left: 50px;
+        }
+
+        button.btn {
+            margin-top: 25px;
+            margin-left: 250px;
+
+        }
+
+        div.payment-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .payment-form input {
+            padding: 10px; /* Add padding to space out the links */
+            text-align: center; /* Center-align the text within each link */
+            border: 1px solid #ccc; /* Add a border for better visibility */
+            text-decoration: none; /* Remove the default link underline */
+            margin-right: 50px;
+        }
+        .payment-form label {
+            margin-left: 250px;
+        }
+
+        h3 {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="logo" href="#"> <img src="img/FabFlix.jpg" alt="Fablix Logo"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="main-page.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="movie-list.html">Top Rating Movie</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<h3>Card Details</h3>
+
+<div class="icon-container">
+    <i class="fa fa-cc-visa" style="color:navy;"></i>
+    <i class="fa fa-cc-amex" style="color:blue;"></i>
+    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+    <i class="fa fa-cc-discover" style="color:orange;"></i>
+</div>
+<div class="payment-form">
+    <label>First Name</label>
+    <input type="text" id="fname" name="fname" placeholder="John">
+
+    <label>Last Name</label>
+    <input type="text" id="lname" name="lname" placeholder="Doe">
+
+    <label for="ccnum">Credit Card Number</label>
+    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+
+    <label for="expmonth">Expiration Year</label>
+    <input type="text" id="expmonth" name="expmonth" placeholder="2026">
+
+    <label for="expyear">Expiration Month</label>
+    <input type="text" id="expyear" name="expyear" placeholder="September">
+
+    <label for="expday">Expiration Day</label>
+    <input type="text" id="expday" name="expday" placeholder="10">
+
+    <div class="place-order">
+        <label style="accent-color:auto">Total Price:</label>
+        <label class="overall-price" style="accent-color:auto">$0.00</label>
+        <button onclick="checkCustomerPaymentInfo()" type="button" class="btn btn-primary" id="placeOrderButton">Place Order</button>
+    </div>
+</div>
+<button onclick="history.back()" type="button" class="btn btn-primary">Back</button>
+
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script src="payment-page.js"></script>
+<!--<script src="main-page.js"></script>-->
+</body>
+
+
+
+
+
+</html>

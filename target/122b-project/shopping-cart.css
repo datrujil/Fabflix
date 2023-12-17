@@ -1,0 +1,61 @@
+body {
+    background-image: url("./img/background-white.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav {
+    font-size: 25px;
+}
+.navbar.bg-body-tertiary {
+    background-color: darkgrey;
+}
+img {
+    width: 65px;
+    height: 65px;
+
+}
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #6a11cb;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+
+/* Style the increment and decrement buttons */
+.cart-item .quantity button {
+    background-color: #007BFF; /* Button background color */
+    color: #FFF; /* Text color */
+    border: none;
+    border-radius: 5px; /* Make them rounded */
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+/* Hover effect for buttons */
+.cart-item .quantity button:hover {
+    background-color: #0056b3; /* Lighter color on hover */
+}
+
+/* Style the "Remove" button */
+.cart-item .delete {
+    background-color: #DC3545; /* Button background color */
+    color: #FFF; /* Text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+/* Hover effect for the "Remove" button */
+.cart-item .delete:hover {
+    background-color: #c82333; /* Lighter color on hover */
+}

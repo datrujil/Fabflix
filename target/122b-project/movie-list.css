@@ -1,0 +1,23 @@
+nav {
+    font-size: 25px;
+}
+.navbar.bg-body-tertiary {
+    background-color: darkgrey;
+}
+img {
+    width: 65px;
+    height: 65px;
+
+}
+
+body {
+    background-image: url("./img/background-white.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.header{
+    margin-top: 30px;
+    height: 100px;
+    text-align: center;
+    color: midnightblue;
+}

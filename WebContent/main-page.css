@@ -1,0 +1,106 @@
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+.autocomplete-suggestion {
+    cursor: pointer;
+}
+
+body {
+    background-image: url("./img/background-white.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.genres-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+div.genres-grid a {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    display: block;
+}
+
+.alpha-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+}
+
+div.alpha-grid a {
+    padding: 10px; /* Add padding to space out the links */
+    text-align: center; /* Center-align the text within each link */
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    text-decoration: none; /* Remove the default link underline */
+    display: block; /* Make each link a block element to take up the entire cell */
+}
+.welcome {
+    color: grey;
+    text-align: center;
+}
+
+nav {
+    font-size: 25px;
+}
+.navbar.bg-body-tertiary {
+    background-color: darkgrey;
+}
+img {
+    width: 65px;
+    height: 65px;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+#search-button {
+    margin-top: 10px;
+}
+
+
+
+h3 {
+    margin-top: 25px;
+}
+
+.box{
+    height: 30px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #ffffff;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.box:hover input{
+    width: 400px;
+}
+
+.box input{
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+}
+
+.box a .fas{
+    color: #007BFF;
+    font-size: 18px;
+}

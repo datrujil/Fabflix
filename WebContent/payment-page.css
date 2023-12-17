@@ -1,0 +1,17 @@
+body {
+    background-image: url("./img/background-white.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav {
+    font-size: 25px;
+}
+.navbar.bg-body-tertiary {
+    background-color: darkgrey;
+}
+img {
+    width: 65px;
+    height: 65px;
+
+}

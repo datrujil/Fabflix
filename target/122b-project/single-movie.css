@@ -1,0 +1,44 @@
+/*body{*/
+/*    background-color: rgb(2, 8, 41);*/
+/*}*/
+
+nav {
+    font-size: 25px;
+}
+.navbar.bg-body-tertiary {
+    background-color: darkgrey;
+}
+img {
+    width: 65px;
+    height: 65px;
+
+}
+
+body {
+    background-image: url("./img/background-white.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.header{
+    margin-top: 30px;
+    height: 100px;
+    text-align: center;
+    color: midnightblue;
+}
+h1{
+    text-shadow: 2px 2px 4px #000000;
+}
+div.dropdown {
+    float: right;
+}
+select {
+    width: 150px;
+    height: 35px;
+    border: 1px;
+    border-radius: 6px;
+    margin: 5px 5px;
+}
+
+#go-to-cart {
+    float: right;
+}

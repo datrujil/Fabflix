@@ -1,0 +1,205 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Movie List Search</title>
+    <script src="https://kit.fontawesome.com/ee5ec8630d.js" crossorigin="anonymous"></script>
+    <style>
+        nav {
+            font-size: 25px;
+        }
+        .navbar.bg-body-tertiary {
+            background-color: darkgrey;
+        }
+        img {
+            width: 65px;
+            height: 65px;
+
+        }
+
+        body {
+            background-image: url("./img/background-white.jpg");
+            background-size: auto;
+            background-repeat: no-repeat;
+        }
+        .header{
+            margin-top: 30px;
+            height: 100px;
+            text-align: center;
+            color: midnightblue;
+        }
+        h1{
+            text-shadow: 2px 2px 4px #000000;
+        }
+        table#star_table {
+            border: 1px solid black;
+            /*border-collapse: collapse;*/
+        }
+        div.table-header th{
+            font-size: 18px;
+            color: #0056b3;
+        }
+        button.btn {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        div.dropdown {
+            float: right;
+        }
+
+        select {
+            width: 150px;
+            height: 35px;
+            border: 1px;
+            border-radius: 6px;
+            margin: 5px 5px;
+        }
+
+        #go-to-cart {
+            float: right;
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: auto;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body style="background-color:lightgrey;">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="logo" href="#"> <img src="img/FabFlix.jpg" alt="Fablix Logo"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="main-page.html">Home</a>
+                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="movie-list.html">Top Rating Movie</a>-->
+<!--                </li>-->
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<h1 class="header"><i class="fa-solid fa-film"></i> Movie List Page</h1>
+<!-- Add a button to go to the shopping cart page -->
+
+<div class="dropdown">
+    <label><b>Sort By: </b></label>
+    <div class="first-prio">
+        <label>First Priority:</label>
+        <select name="first-choice" id="first-choice">
+            <option value="rating">Rating</option>
+            <option value="title" >Title</option>
+        </select>
+        <select name="first-priority-type" id="first-priority-type">
+            <option value="descending">Descending</option>
+            <option value="ascending">Ascending</option>
+
+        </select>
+    </div>
+    <div class="second-prio">
+        <label>Second Priority:</label>
+        <select name="second-choice" id="second-choice">
+            <option value="title">Title</option>
+            <option value="rating">Rating </option>
+        </select>
+        <select name="second-priority-type" id="second-priority-type">
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
+        </select>
+    </div>
+
+    <div class="pagination-info">
+        <label for="items-per-page">Items Per Page:</label>
+        <select id="items-per-page">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        <label for="current-page">Current Page:</label>
+        <input type="number" id="current-page" name="current-page" value="1" min="1">
+    </div>
+    <button onclick="handleSort(event)" id="sortButton" class="btn btn-primary">Sort</button>
+</div>
+
+
+
+
+<!--ID "star_table" is useful for jQuery to find the html element with id, class here is mapping to Bootstrap defined class CSS -->
+<table id=star_table class="table table-striped">
+    <!-- Create a table header -->
+    <thead>
+    <tr >
+        <!-- Titles of each column-->
+        <div class="table-header">
+            <th>Title</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Rating</th>
+            <th>Genres</th>
+            <th>Stars</th>
+            <th>Price</th>
+            <th></th>
+        </div>
+        <!--        <th>add-to-cart-button</th>-->
+    </tr>
+    </thead>
+    <div class="cart"></div>
+    <!-- Table body is left empty here, will be populated with the data retrieved with movie-list.js -->
+    <!-- Again, id "star_table_body" is useful for jQuery to find this html element -->
+    <tbody id=star_table_body></tbody>
+</table>
+
+<button onclick="goToShoppingCart()" id="go-to-cart" class="btn btn-primary">Checkout</button>
+
+<!--<button type="button" onclick="next()">Next</button>-->
+<nav aria-label="page-navigation">
+    <div>
+        <ul class="pagination pagination-lg">
+            <button onclick="history.back()" type="button" class="btn btn-primary">Back</button>
+        </ul>
+        <div class="center">
+            <button onclick="goToPreviousPage()" type="button" class="btn btn-primary">Previous</button>
+            <button onclick="goToNextPage()" type="button" class="btn btn-primary">Next</button>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<!-- Load our own JS file -->
+<!-- The path is relative to movie-list.html, since these two files are in the same directory -->
+<!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+     otherwise the url is relative to the root path-->
+<script src="movie-list-search.js"></script>
+<script src="shopping-cart.js"></script>
+</body>
+
+
+</html>
